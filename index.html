@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Botola Surveys/Polls</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Kufi+Arabic&display=swap" rel="stylesheet">
+</head>
+<style>
+  html,
+  body,
+  div,
+  span,
+  applet,
+  object,
+  iframe,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  blockquote,
+  pre,
+  a,
+  abbr,
+  acronym,
+  address,
+  big,
+  cite,
+  code,
+  del,
+  dfn,
+  em,
+  img,
+  ins,
+  kbd,
+  q,
+  s,
+  samp,
+  small,
+  strike,
+  strong,
+  sub,
+  sup,
+  tt,
+  var,
+  b,
+  u,
+  i,
+  center,
+  dl,
+  dt,
+  dd,
+  ol,
+  ul,
+  li,
+  fieldset,
+  form,
+  label,
+  legend,
+  table,
+  caption,
+  tbody,
+  tfoot,
+  thead,
+  tr,
+  th,
+  td,
+  article,
+  aside,
+  canvas,
+  details,
+  embed,
+  figure,
+  figcaption,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  output,
+  ruby,
+  section,
+  summary,
+  time,
+  mark,
+  audio,
+  video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+
+  /* HTML5 display-role reset for older browsers */
+  article,
+  aside,
+  details,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  section {
+    display: block;
+  }
+
+  body {
+    line-height: 1;
+  }
+
+  ol,
+  ul {
+    list-style: none;
+  }
+
+  blockquote,
+  q {
+    quotes: none;
+  }
+
+  blockquote:before,
+  blockquote:after,
+  q:before,
+  q:after {
+    content: '';
+    content: none;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  .checkbox-wrapper:hover .check {
+    stroke-dashoffset: 0;
+  }
+
+  .checkbox-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+  }
+  .checkbox-wrapper .background {
+    fill: #f3cc0f;
+    transition: ease all 0.6s;
+    -webkit-transition: ease all 0.6s;
+  }
+  .checkbox-wrapper .stroke {
+    fill: none;
+    stroke: #fff;
+    stroke-miterlimit: 10;
+    stroke-width: 2px;
+    stroke-dashoffset: 100;
+    stroke-dasharray: 100;
+    transition: ease all 0.6s;
+    -webkit-transition: ease all 0.6s;
+  }
+  .checkbox-wrapper .check {
+    fill: none;
+    stroke: #fff;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2px;
+    stroke-dashoffset: 22;
+    stroke-dasharray: 22;
+    transition: ease all 0.6s;
+    -webkit-transition: ease all 0.6s;
+  }
+  .checkbox-wrapper input[type=checkbox] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    margin: 0;
+    opacity: 0;
+    -appearance: none;
+    -webkit-appearance: none;
+  }
+  .checkbox-wrapper input[type=checkbox]:hover {
+    cursor: pointer;
+  }
+  .checkbox-wrapper input[type=checkbox]:checked + svg .background {
+    fill: #6cbe45;
+  }
+  .checkbox-wrapper input[type=checkbox]:checked + svg .stroke {
+    stroke-dashoffset: 0;
+  }
+  .checkbox-wrapper input[type=checkbox]:checked + svg .check {
+    stroke-dashoffset: 0;
+  }
+
+
+  body {
+    background: #141414;
+  }
+
+  .styledImg {
+    border-radius: 6px;
+  }
+  .imgWrapper{
+    border: solid 1px #a1a1a1;
+    border-radius: 6px;
+    padding: 4px;
+  }
+
+  .checkbox-wrapper{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+  }
+  .cardWrapper{
+    position: relative;
+  }
+
+  .heading-logo{
+    width: 30vw;
+  }
+
+  body{
+    font-family: 'Noto Kufi Arabic', sans-serif;
+  }
+
+  .logo-wrapper{
+    margin: 42px 0;
+  }
+
+  .logo-wrapper img{
+    max-width: 30vw;
+    image-rendering: auto;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+  }
+  .survey-question-wrapper{
+    margin-bottom: 42px;
+  }
+  .survey-question{
+    font-size: 1.5rem;
+    color: #dedede;
+    line-height: 2;
+    
+  }
+  .survey-question-optional{
+    font-size: 1rem;
+    color: #dedede;
+    display: block;
+  }
+
+  .elements-wrapper{
+    margin-bottom: 42px;
+  }
+/* 
+
+
+  .card-element__link{
+    display: block;
+    text-decoration: none;
+    direction: rtl;
+  }
+  .card-element__wrapper{
+    display: flex;
+    flex-direction: row;
+    background: #fff;
+    box-shadow: 0 4px 9px 0 rgb(23 28 33 / 6%);
+    border-radius: 4px;
+    margin: 20px auto;
+  }
+  .card-element__img-wrapper{
+    width: 30vw;
+    min-width: 112px;
+    min-height: 95px;
+    position: relative;
+    background-image: url('https://images2.elbotola.com/article/64a53542d7e0a627339291ba_default.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .card-element__img-wrapper img{
+    width: 100%;
+  }
+  .card-element__header{
+    height: 3.2rem;
+    overflow: hidden;
+    line-height: 180%;
+    margin-bottom: 20px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    display: block;
+  }
+  .card-element__txt-wrapper{
+    width: 70vw;
+    padding: 12px;
+  }
+  .card-element__tags-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    place-content: flex-start space-between;
+  }
+  .card-element__tags-wrapper img{
+    width: 16px;
+    height: 16px;
+    margin-left: 4px;
+    border-radius: 0px;
+  }
+  .card-element__tag-txt{
+    max-width: 35vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.6rem;
+    text-decoration: none;
+    color: rgb(105, 124, 139);
+  } */
+</style>
+
+<body style="direction: rtl;">
+
+  <div class="container">
+    <div class="logo-wrapper text-center">
+      <img src="imgs/ebotola.png" />
+    </div>
+
+    <div class="survey-question-wrapper row text-center">
+      <h1 class="survey-question">ما الألعاب التي تود تواجدها ضمن قائمة SUMMER CHALLENGE '23</h1>
+      <span class="survey-question-optional">(5 اختيارات)</span>
+    </div>
+
+
+    <div class="text-center row row-cols-1 row-cols-sm-2 row-cols-md-3 g-2 elements-wrapper">
+      <!-- element -->
+      <div class="col-6 col-md-4 cardWrapper">
+        <label for="chkbx1"><div class="imgWrapper"><img class="img-fluid styledImg" src="imgs/a.jfif" /></div></label>
+        <div class="checkbox-wrapper">
+          <input type="checkbox" id="chkbx1"/>
+          <svg viewBox="0 0 35.6 35.6">
+            <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+            <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+            <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+          </svg>
+        </div>
+      </div>
+
+      <!-- element -->
+      <div class="col-6 col-md-4 cardWrapper">
+        <label for="chkbx2"><div class="imgWrapper"><img class="img-fluid styledImg" src="imgs/b.webp" /></div></label>
+        <div class="checkbox-wrapper">
+          <input type="checkbox" id="chkbx2"/>
+          <svg viewBox="0 0 35.6 35.6">
+            <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+            <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+            <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+          </svg>
+        </div>
+      </div>
+
+      <!-- element -->
+      <div class="col-6 col-md-4 cardWrapper">
+        <label for="chkbx3"><div class="imgWrapper"><img class="img-fluid styledImg" src="imgs/c.avif" /></div></label>
+        <div class="checkbox-wrapper">
+          <input type="checkbox" id="chkbx3"/>
+          <svg viewBox="0 0 35.6 35.6">
+            <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+            <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+            <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+          </svg>
+        </div>
+      </div>
+
+      <!-- element -->
+      <div class="col-6 col-md-4 cardWrapper">
+        <label for="chkbx4"><div class="imgWrapper"><img class="img-fluid styledImg" src="imgs/d.webp" /></div></label>
+        <div class="checkbox-wrapper">
+          <input type="checkbox" id="chkbx4"/>
+          <svg viewBox="0 0 35.6 35.6">
+            <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+            <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+            <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+          </svg>
+        </div>
+      </div>
+
+      <!-- element -->
+      <div class="col-6 col-md-4 cardWrapper">
+        <label for="chkbx5">
+        <div class="imgWrapper"><img class="img-fluid styledImg" src="imgs/e.jfif" /></div></label>
+        <div class="checkbox-wrapper">
+          <input type="checkbox" id="chkbx5"/>
+          <svg viewBox="0 0 35.6 35.6">
+            <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+            <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+            <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+          </svg>
+        </div>
+      </div>
+
+      <!-- element -->
+      <div class="col-6 col-md-4 cardWrapper">
+        <label for="chkbx6"><div class="imgWrapper"><img class="img-fluid styledImg" src="imgs/f.webp" /></div></label>
+        <div class="checkbox-wrapper">
+          <input type="checkbox" id="chkbx6"/>
+          <svg viewBox="0 0 35.6 35.6">
+            <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+            <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+            <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+          </svg>
+        </div>
+      </div>
+
+      <!-- element -->
+      <div class="col-6 col-md-4 cardWrapper">
+        <label for="chkbx7"><div class="imgWrapper"><img class="img-fluid styledImg" src="imgs/g.jfif" /></div></label>
+        <div class="checkbox-wrapper">
+          <input type="checkbox" id="chkbx7"/>
+          <svg viewBox="0 0 35.6 35.6">
+            <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+            <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+            <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+          </svg>
+        </div>
+      </div>
+
+      <!-- element -->
+      <div class="col-6 col-md-4 cardWrapper">
+        <label for="chkbx8"><div class="imgWrapper"><img class="img-fluid styledImg" src="imgs/h.webp" /></div></label>
+        <div class="checkbox-wrapper">
+          <input type="checkbox" id="chkbx8"/>
+          <svg viewBox="0 0 35.6 35.6">
+            <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+            <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+            <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+          </svg>
+        </div>
+      </div>
+  </div>
+
+
+  <script>
+      document.addEventListener('DOMContentLoaded', () => {
+      let Checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      var unmarkedBoxCount = document.querySelectorAll('input[type="checkbox"]:not(:checked)');
+      var markedBoxCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
+ 
+      for (let i = 0; i < Checkboxes.length; i++)
+        Checkboxes[i].addEventListener('click', (event) => {
+          if (markedBoxCount < 5) {
+            for (let i = 0; i < unmarkedBoxCount.length; i++)
+              unmarkedBoxCount[i].disabled = false;
+          }
+          checkboxLimiter();
+        });
+    });
+
+    function checkboxLimiter() {
+      markedBoxCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
+      
+      if (markedBoxCount == 5) {
+        disable();
+
+      }
+    }
+
+    function disable() {      
+      markedBoxCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
+      unmarkedBoxCount = document.querySelectorAll('input[type="checkbox"]:not(:checked)');
+
+      for (let i = 0; i < unmarkedBoxCount.length; i++)
+        unmarkedBoxCount[i].disabled = true;
+     
+    }
+  </script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
